@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+var fs = require('fs'),
+    http = require('http'),
+    https = require('https'),
+    httpProxy = require('http-proxy');
+
+var options = {
+  https: {
+    key: fs.readFileSync("/etc/ssl/private/driverwriter.com.key", 'utf8'),
+    cert: fs.readFileSync("/etc/ssl/certs/driverwriter.com.pem", 'utf8')
+  }
+};
+
+//
+// Create a standalone HTTPS proxy server
+//
+httpProxy.createServer(3000, 'localhost', options).listen(3004);
+
+//
+// Create an instance of HttpProxy to use with another HTTPS server
+//
+var proxy = new httpProxy.HttpProxy({
+  target: {
+    host: 'localhost', 
+    port: 3000
+  }
+});
+https.createServer(options.https, function (req, res) {
+  proxy.proxyRequest(req, res)
+}).listen(3003);
+
