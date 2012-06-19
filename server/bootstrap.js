@@ -2,7 +2,7 @@
 Meteor.startup(function () {
   var require = __meteor_bootstrap__.require
   var connect = require('connect')
-  __meteor_bootstrap__.app.use(connect.basicAuth('username', 'password'))
+  __meteor_bootstrap__.app.use(connect.basicAuth(process.env['USER'], process.env['PASSWORD'] || ""))
   var basicAuth = __meteor_bootstrap__.app.stack.pop()
   __meteor_bootstrap__.app.stack.unshift(basicAuth)
 
