@@ -248,6 +248,32 @@ Template.todo_item.events[ okcancel_events('#edittag-input') ] =
 
 ////////// Tag Filter //////////
 
+  Template.todo_item_at.editing = function () {
+    return false;
+  };
+
+  Template.todo_item_at.has_position = function () {
+    var _ = this.top && this.left;
+    if (_) console.log("has_position\n")
+    return _;
+  };
+
+  Template.todo_item_at.top = function () {
+    if (this) console.log("this: "+this+"\n")
+    if (this.position) console.log("this.style: "+this.style+"\n")
+    var _ = this.top;
+    if (_) console.log("top: "+top+"\n")
+    return _;
+  };
+
+  Template.todo_item_at.left = function () {
+    var _ = this.left;
+    if (_) console.log("left: "+left+"\n")
+    return _;
+  };
+
+////////// Tag Filter //////////
+
 // Pick out the unique tags from all todos in current list.
 Template.tag_filter.tags = function () {
   var tag_infos = [];

@@ -149,7 +149,10 @@ h3 {
     margin-right: 20px;
     font-size: 160%;
     position: relative;
-    height: 40px;
+    height: 45px;
+    width: 144px;
+    top: 400px;
+    left: 90px;
 }
 
 #new-todo {
@@ -174,17 +177,18 @@ h3 {
     cursor: pointer;
     position: absolute;
     left: 5px;
-    top: 15px;
+    top: 5px;
     height: 20px;
     width: 20px;
 }
 
 #item-list .todo .display, #item-list .todo .edit {
-    margin-left: 30px;
+    margin-left: 600px;
     height: 100%;
     width: auto;
     float: left;
     padding-top: 18px;
+#    padding-left: 100px;
     line-height: 1;
 }
 
@@ -192,6 +196,11 @@ h3 {
     width: 300px;
     position: relative;
     top: -3px;
+}
+
+.todo_at {
+    width: 300px;
+    position: absolute;
 }
 
 #item-list .done .todo-text {

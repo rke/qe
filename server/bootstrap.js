@@ -1,10 +1,13 @@
 // if the database is empty on server start, create some sample data.
 Meteor.startup(function () {
-  var require = __meteor_bootstrap__.require
-  var connect = require('connect')
-  __meteor_bootstrap__.app.use(connect.basicAuth(process.env['USER'], process.env['PASSWORD'] || ""))
-  var basicAuth = __meteor_bootstrap__.app.stack.pop()
-  __meteor_bootstrap__.app.stack.unshift(basicAuth)
+  var password = process.env['METEOR_PASSWORD']
+  if (password) {
+    var require = __meteor_bootstrap__.require
+    var connect = require('connect')
+    __meteor_bootstrap__.app.use(connect.basicAuth(process.env['METEOR_USERNAME'] || process.env['USERNAME'] || process.env['LOGNAME'] || process.env['USER'], password))
+    var basicAuth = __meteor_bootstrap__.app.stack.pop()
+    __meteor_bootstrap__.app.stack.unshift(basicAuth)
+  }
 
   if (Lists.find().count() === 0) {
     var data = [
