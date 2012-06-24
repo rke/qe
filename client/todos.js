@@ -257,11 +257,13 @@ Template.todo_item.events[ okcancel_events('#edittag-input') ] =
   };
 
   Template.todo_item_at.defer = function () {
+    var self = this
     Meteor.defer(function(){
-      // var self=$(_id)
-      // var top=self.style.top
-      // var left=self.style.left
-      console.log("deferred")
+      var _id = self._id
+      var element=$('#'+_id)
+      var position = element.position()
+      element.css({top:self.top+"px",left:self.left+"px"})
+      console.log("self: "+self+", _id: "+_id+", element: "+element+", position: "+position)
     })
     return "";
   };

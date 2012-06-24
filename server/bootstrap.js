@@ -59,5 +59,7 @@ Meteor.startup(function () {
         timestamp += 1; // ensure unique timestamp.
       }
     }
+    Todos.update({"text" : "Ada Lovelace"},{"$set":{"left":200}})
+    Todos.update({"text" : "Ada Lovelace"},{"$set":{"top":250}})
   }
 });
