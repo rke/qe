@@ -253,24 +253,30 @@ Template.todo_item.events[ okcancel_events('#edittag-input') ] =
   };
 
   Template.todo_item_at.has_position = function () {
-    var _ = this.top && this.left;
-    if (_) console.log("has_position\n")
-    return _;
+    return this.top && this.left;
   };
 
-  Template.todo_item_at.top = function () {
-    if (this) console.log("this: "+this+"\n")
-    if (this.position) console.log("this.style: "+this.style+"\n")
-    var _ = this.top;
-    if (_) console.log("top: "+top+"\n")
-    return _;
+  Template.todo_item_at.defer = function () {
+    Meteor.defer(function(){
+      // var self=$(_id)
+      // var top=self.style.top
+      // var left=self.style.left
+      console.log("deferred")
+    })
+    return "";
   };
 
-  Template.todo_item_at.left = function () {
-    var _ = this.left;
-    if (_) console.log("left: "+left+"\n")
-    return _;
-  };
+  // Template.todo_item_at.top = function () {
+  //   var _ = this.top;
+  //   if (_) console.log("top: "+_+"\n")
+  //   return _;
+  // };
+  // 
+  // Template.todo_item_at.left = function () {
+  //   var _ = this.left;
+  //   if (_) console.log("left: "+_+"\n")
+  //   return _;
+  // };
 
 ////////// Tag Filter //////////
 

@@ -91,10 +91,7 @@
 
 <template name="todo_item_at">
   {{#if has_position}}
-  <div class="todo_at">
-    <style>
-    * { top:{{top}}; left:{{left}}; }
-    </style>
+  <div id={{_id}} class="todo_at">
     {{#if editing}}
       <div class="edit">
         <input id="todo-input" type="text" value="{{text}}" />
@@ -105,6 +102,7 @@
       </div>
     {{/if}}
   </div>
+  {{defer}}
   {{/if}}
 </template>
 
