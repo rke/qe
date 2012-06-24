@@ -201,8 +201,8 @@ h3 {
 .todo_at {
     width: 300px;
     position: absolute;
-    top: 55px;
-    left: 99px;
+    top: 0;
+    left: 0;
 }
 
 #item-list .done .todo-text {

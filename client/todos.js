@@ -263,22 +263,10 @@ Template.todo_item.events[ okcancel_events('#edittag-input') ] =
       var element=$('#'+_id)
       var position = element.position()
       element.css({top:self.top+"px",left:self.left+"px"})
-      console.log("self: "+self+", _id: "+_id+", element: "+element+", position: "+position)
+      console.log("self",self,"_id",_id,"element",element,"position",position)
     })
     return "";
   };
-
-  // Template.todo_item_at.top = function () {
-  //   var _ = this.top;
-  //   if (_) console.log("top: "+_+"\n")
-  //   return _;
-  // };
-  // 
-  // Template.todo_item_at.left = function () {
-  //   var _ = this.left;
-  //   if (_) console.log("left: "+_+"\n")
-  //   return _;
-  // };
 
 ////////// Tag Filter //////////
 
